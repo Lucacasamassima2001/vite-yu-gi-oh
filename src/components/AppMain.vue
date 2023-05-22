@@ -36,9 +36,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+@use '../assets/style/partials/variables' as *;
 main{
     background-color: rgba(212,143,56,255);
+    height: 2000px;
 }
 
 
@@ -59,8 +60,7 @@ main{
 .container-cards{
     border: 50px solid white;
     background-color: white;
-    margin-inline: auto;
-    display: flex;
+    @include flex-margin-auto;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1em;

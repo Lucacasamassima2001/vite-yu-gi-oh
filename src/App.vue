@@ -2,7 +2,8 @@
 import AppFilter from './components/AppFilter.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-import axios from 'axios'
+import axios from 'axios';
+import AppLoader from './components/AppLoader.vue';
 
 import {store} from './store';
 
@@ -21,6 +22,7 @@ export default {
     AppHeader,
     AppFilter,
     AppMain,
+    AppLoader,
   },
 
   created(){
@@ -34,15 +36,13 @@ export default {
 <template>
   <AppHeader/>
   <AppFilter/>
+  <AppLoader v-show="store.CharacterList.length === 0"/>
   <AppMain/> 
 </template>
 
 <style lang="scss">
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
+@use './assets/style/general.scss'
 
 
 </style>

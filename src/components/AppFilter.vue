@@ -8,7 +8,14 @@ export default {
 <template>
   <nav>
     <div class="container">
-        <button>Alien</button>
+      <div class="form-floating">
+  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+    <option selected>Alien</option>
+    <option value="1">Equip</option>
+    <option value="2">Insects</option>
+    <option value="3">Beasts</option>
+  </select>
+</div>
     </div>
   </nav>
 </template>
@@ -16,7 +23,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+@use '../assets/style/partials/variables' as *;
 
 nav{
     height: 100px;
@@ -24,16 +31,18 @@ nav{
     .container{
         height: 100%;
         width: 80%;
-        margin-inline: auto;
-        display: flex;
+        @include flex-margin-auto;
         align-items: center;
     }
 
 }
 
-button{
-    width: 100px;
+select{
+    width: 200px;
     height: 50px;
+    font-size: 1.5em;
+    padding: .2em;
+    border-radius: 10px;
 }
 
 </style>

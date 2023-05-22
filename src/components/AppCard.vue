@@ -20,12 +20,12 @@ export default {
 
 
 <style lang="scss" scoped>
-
+@use '../assets/style/partials/variables' as *;
 .card{
     width: 200px;
     height: 400px;
     text-align: center;
-    background-color: rgba(212,143,56,255);
+    background-color: $brand-color;
 
     img{
         width: 100%;
