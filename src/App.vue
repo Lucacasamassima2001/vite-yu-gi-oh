@@ -37,8 +37,12 @@ export default {
   <AppMain/> 
 </template>
 
-<style lang="scss" scoped>
-@use "./assets/style/general.scss"
+<style lang="scss">
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 
 </style>

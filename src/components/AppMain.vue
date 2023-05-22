@@ -51,7 +51,7 @@ main{
     margin-inline: auto;
     background-color: rgba(33,37,41,255);
     color: white;
-    height: 50px;
+    height: 100px;
     padding: 1em;
     font-size: 2em;
 }

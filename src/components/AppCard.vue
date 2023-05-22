@@ -12,7 +12,7 @@ export default {
 <template>
   <div class="card">
     <img :src="CharacterData.card_images[0].image_url" :alt="CharacterData.name">
-    <h4>{{ CharacterData.name }}</h4>
+    <h3>{{ CharacterData.name }}</h3>
     <div class="species">{{ CharacterData.race }} </div>
   </div>
 </template>
@@ -31,8 +31,13 @@ export default {
         width: 100%;
     }
 
-    h4{
+    h3{
+        margin-top: 1em;
         color: white;
+    }
+
+    .species{
+        margin-top: 1em;
     }
 
 

@@ -9,7 +9,7 @@ export default{
 <template>
   <header>
     <img src="../assets/img/yu-gi-oh-logo.jpg" alt="">
-    <h1>Yu-Gi-Oh-Api</h1>
+    <h1>Yu-Gi-Oh Api</h1>
   </header>
 </template>
 
@@ -22,6 +22,12 @@ header{
     align-items: center;
     gap: 1em;
     padding: .5em;
+
+    h1{
+        font-size: 3em;
+    }
+
+
 }
 
 
