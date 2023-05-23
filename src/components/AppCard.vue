@@ -26,6 +26,8 @@ export default {
     height: 400px;
     text-align: center;
     background-color: $brand-color;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 
     img{
         width: 100%;

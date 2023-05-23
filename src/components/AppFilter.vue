@@ -1,6 +1,20 @@
 <script>
-export default {
+import {store} from '../store';
 
+export default {
+  data(){
+    return{
+      store,
+    }
+  },
+  methods: {
+        emitArchetypes() {
+            this.$emit('performSearch');
+        },
+        resetArchetypes() {
+            this.$emit('resetSearch');
+        }
+    },
 }
 </script>
 
@@ -8,13 +22,12 @@ export default {
 <template>
   <nav>
     <div class="container">
-      <div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Alien</option>
-    <option value="1">Equip</option>
-    <option value="2">Insects</option>
-    <option value="3">Beasts</option>
-  </select>
+      <div>
+        <select v-model="store.searchArchetypes" @change="emitArchetypes">
+      <option value="">Select Archetypes</option>
+      <option v-for="archetype in store.ArrArchetypes" :key="archetype" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
+    </select>
+    <button @click="resetArchetypes">Reset</button>
 </div>
     </div>
   </nav>

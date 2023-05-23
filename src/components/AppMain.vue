@@ -39,7 +39,6 @@ export default {
 @use '../assets/style/partials/variables' as *;
 main{
     background-color: rgba(212,143,56,255);
-    height: 2000px;
 }
 
 
@@ -55,6 +54,8 @@ main{
     height: 100px;
     padding: 1em;
     font-size: 2em;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .container-cards{
@@ -64,6 +65,8 @@ main{
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1em;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 </style>

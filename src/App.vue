@@ -1,11 +1,12 @@
 <script>
+import {store} from './store';
+
 import AppFilter from './components/AppFilter.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import axios from 'axios';
 import AppLoader from './components/AppLoader.vue';
 
-import {store} from './store';
 
 
 export default {
@@ -17,6 +18,8 @@ export default {
     }
 
   },
+
+  
   
   components: {
     AppHeader,
@@ -25,9 +28,30 @@ export default {
     AppLoader,
   },
 
-  created(){
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-    .then(response =>  (this.store.CharacterList = response.data.data));
+  methods: {
+    requestDataFromApi() {
+      axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')   
+     .then(response => (this.store.ArrArchetypes = response.data));
+    },
+    filteredArchetypes() {
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
+        params: {
+          archetype: this.store.searchArchetypes,
+        }
+      })
+      .then(response => (this.store.CharacterList = response.data.data));
+    },
+    reset() {
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
+      .then(response => (this.store.CharacterList = response.data.data));
+    }, 
+  },
+  created() {
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
+    .then(response => (this.store.CharacterList = response.data.data));
+    
+    this.requestDataFromApi();
+    
   }
 
 }
@@ -35,7 +59,7 @@ export default {
 
 <template>
   <AppHeader/>
-  <AppFilter/>
+  <AppFilter @performSearch="filteredArchetypes" @resetSearch="reset"/>
   <AppLoader v-show="store.CharacterList.length === 0"/>
   <AppMain/> 
 </template>
@@ -46,5 +70,4 @@ export default {
 
 
 </style>
-
 

@@ -4,5 +4,7 @@ export const store = reactive(
     
     {
         CharacterList: [],
+        ArrArchetypes: [],
+        searchArchetypes: '',
     }
 );
