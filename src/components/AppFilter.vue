@@ -24,7 +24,7 @@ export default {
     <div class="container">
       <div>
         <select v-model="store.searchArchetypes" @change="emitArchetypes">
-      <option value="">Select Archetypes</option>
+      <option value="">Select an Archetype</option>
       <option v-for="archetype in store.ArrArchetypes" :key="archetype" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
     </select>
     <button @click="resetArchetypes">Reset</button>
@@ -53,9 +53,21 @@ nav{
 select{
     width: 200px;
     height: 50px;
-    font-size: 1.5em;
+    font-size: 1.1em;
     padding: .2em;
     border-radius: 10px;
+    border: 2px solid black;
+}
+
+button{
+  background-color: white;
+    width: 100px;
+    height: 50px;
+    font-size: 1.1em;
+    padding: .2em;
+    border-radius: 10px;
+    margin-left: 1em;
+    border: 2px solid black;
 }
 
 </style>
