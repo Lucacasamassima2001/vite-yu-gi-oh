@@ -29,13 +29,11 @@ export default {
   },
 
   methods: {
-    requestDataFromApi() {
-      axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')   
-     .then(response => (this.store.ArrArchetypes = response.data));
-    },
     filteredArchetypes() {
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
         params: {
+          num:20,
+          offset:0,
           archetype: this.store.searchArchetypes,
         }
       })
@@ -49,10 +47,11 @@ export default {
   created() {
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
     .then(response => (this.store.CharacterList = response.data.data));
+     
+    axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')   
+    .then(response => (this.store.ArrArchetypes = response.data));
     
-    this.requestDataFromApi();
-    
-  }
+  },
 
 }
 </script>
